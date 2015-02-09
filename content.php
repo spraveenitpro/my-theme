@@ -8,6 +8,12 @@
 	<header class="entry-header">
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
+		<?php if ( has_post_thumbnail() ) { ?>
+			<div class="post-thumbnail">
+				<?php the_post_thumbnail( ); ?>
+			</div>
+		<?php } ?>
+
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php my_theme_posted_on(); ?>

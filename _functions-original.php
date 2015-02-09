@@ -102,7 +102,7 @@ add_action( 'widgets_init', 'my_theme_widgets_init' );
 function my_theme_scripts() {
 	wp_enqueue_style( 'my-theme-style', get_stylesheet_uri() );
 
-	//wp_enqueue_script( 'my-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'my-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'my-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -136,5 +136,3 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-require get_template_directory() . '/custom_functions.php';

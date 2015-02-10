@@ -23,11 +23,15 @@
 
 	<div class="entry-content">
 		<?php
-			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'my-theme' ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+			if ( $post->post_excerpt ) {
+				the_excerpt();
+				echo sprintf( '<div class="continue_btn"><a href="%s" class="more-link" rel="bookmark">Continue Reading'.the_title( '<span class="screen-reader-text">"', '"</span>', false ).'</a></div>', esc_url(get_permalink()) );
+			} else {
+				the_content( sprintf(
+					__( 'Continue Reading %s', 'testtheme' ),
+					the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				) );
+			}
 		?>
 
 		<?php

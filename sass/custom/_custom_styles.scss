@@ -157,6 +157,31 @@ ul, ol {
 	@include entry_meta();
 }
 
+.continue_btn {
+	text-align: center;
+}
+
+.entry-content {
+	a.more-link {
+		font-size: 18*$px;
+		font-weight: 700;
+		display: inline-block;
+		padding: 1em $phi * 1em;
+		margin: 2em 0 .5em 0;
+		&:before {
+			font-family: "FontAwesome";
+			content: "\f0a4";
+			margin-right: 0.5em;
+		}
+		&:after {
+			font-family: "FontAwesome";
+			content: "\f0a5";
+			margin-left: 0.5em;
+		}
+		@include more_link();
+	}
+}
+
 .entry-footer {
 	text-align: center;
 	margin: $post_b_padding 0 $post_b_padding / $phi 0;
@@ -253,6 +278,32 @@ ul, ol {
 input.search-field {
 	box-sizing: border-box;
 	width: 100%;
+}
+
+// Widget above header
+
+.aboveheader {
+	max-width: total_site_width();
+	margin: 0 auto;
+	text-align: right;
+	font-size: 20*$px;
+	a {
+		margin-right: 0.618em;
+		&:link, &:visited {
+			opacity: 0.75;
+		}
+		&:hover, &:active {
+			opacity: 1;
+		}
+	}
+}
+
+// Widget above content
+
+.abovecontent {
+	max-width: total_site_width();
+	margin: 0 auto;
+	@include main_panel();
 }
 
 // Widget icons

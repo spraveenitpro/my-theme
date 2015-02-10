@@ -18,4 +18,35 @@ add_theme_support( 'post-thumbnails' );
 
 // Set the post thumbnail default size to suit the theme layout
 set_post_thumbnail_size( 811, 456, true );
+
+
+
+// Add a div wrapper around the "Continue Reading" button
+// From https://tommcfarlin.com/more-tag-wrapper/
+function add_continue_wrapper( $link, $text ) {
+	$html = '<div class="continue_btn">' . $link . '</div>';
+	return $html;
+}
+add_action( 'the_content_more_link', 'add_continue_wrapper', 10, 2 );
+
+// Register custom widget locations
+register_sidebar(
+	array(
+		'name' => __("Above Header", "testtheme"),
+		'id' => 'aboveheader',
+		'description' => 'Above header and menu, right aligned, use for social icons',
+		'before_widget' => "<div class='aboveheader'>",
+		'after_widget' => "</div>"
+	)
+);
+
+register_sidebar(
+	array(
+		'name' => __("Above Content Area", "testtheme"),
+		'id' => 'abovecontent',
+		'description' => 'Front page only, use for sliders',
+		'before_widget' => "<div class='abovecontent'>",
+		'after_widget' => "</div>"
+	)
+);
 ?>

@@ -244,6 +244,14 @@ $color__entry_highlight: #7B6048;
 	border-bottom: 10 * $px solid $color__link;
 }
 
+
+@mixin more_link(){
+	background: none;
+	border-top: 3*$px solid saturate(lighten($color__link, 45%), 10%);
+	border-bottom: 3*$px solid saturate(lighten($color__link, 45%), 10%);
+	color: $color__link;
+}
+
 // Menu coloring
 
 @mixin child_menu_expanded(){

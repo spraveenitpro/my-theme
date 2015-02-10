@@ -21,6 +21,12 @@
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'my-theme' ); ?></a>
 
+	<?php 
+		if ( is_dynamic_sidebar('aboveheader') ){
+			dynamic_sidebar('aboveheader');
+		}
+	?><!-- Widget Location to hold social icons  -->
+
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -33,5 +39,12 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'depth' => 2 ) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+	<?php 
+		if ( is_front_page() && !is_paged() && is_dynamic_sidebar('abovecontent') ) {
+		dynamic_sidebar('abovecontent');
+	}
+
+	 ?>
+	
 
 	<div id="content" class="site-content">
